@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -9,8 +10,78 @@
   {
     "id": 2,
     "name": "Dr. Rahul Sharma",
-    "speciality": "Neurologist",
+    "speciality": "Cardiologist",
     "hospital": "Fortis Hospital",
     "profileImage": "https://randomuser.me/api/portraits/men/45.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Sneha Rao",
+    "speciality": "Dermatologist",
+    "hospital": "Columbia Asia",
+    "profileImage": "https://randomuser.me/api/portraits/women/65.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Arjun Verma",
+    "speciality": "Pediatrician",
+    "hospital": "Rainbow Children's Hospital",
+    "profileImage": "https://randomuser.me/api/portraits/men/64.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Dr. Meera Iyer",
+    "speciality": "Orthopedic Surgeon",
+    "hospital": "Manipal Hospitals",
+    "profileImage": "https://randomuser.me/api/portraits/women/61.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Dr. Karan Bhatt",
+    "speciality": "Dermatologist",
+    "hospital": "Narayana Health",
+    "profileImage": "https://randomuser.me/api/portraits/men/33.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Dr. Anjali Kapoor",
+    "speciality": "Gynecologist",
+    "hospital": "Cloudnine Hospitals",
+    "profileImage": "https://randomuser.me/api/portraits/women/47.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Dr. Priya Deshmukh",
+    "speciality": "Gynecologist",
+    "hospital": "Apollo Cradle",
+    "profileImage": "https://randomuser.me/api/portraits/women/43.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Dr. Vikram Desai",
+    "speciality": "ENT Specialist",
+    "hospital": "Max Healthcare",
+    "profileImage": "https://randomuser.me/api/portraits/men/22.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Dr. Rajeev Reddy",
+    "speciality": "Orthopedic Surgeon",
+    "hospital": "Tata Memorial Hospital",
+    "profileImage": "https://randomuser.me/api/portraits/men/42.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Dr. Nisha Nair",
+    "speciality": "Psychiatrist",
+    "hospital": "AIIMS Delhi",
+    "profileImage": "https://randomuser.me/api/portraits/women/56.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Dr. Sameer Joshi",
+    "speciality": "Psychiatrist",
+    "hospital": "NIMHANS",
+    "profileImage": "https://randomuser.me/api/portraits/men/56.jpg"
   }
 ]

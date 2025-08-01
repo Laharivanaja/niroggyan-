@@ -1,110 +1,153 @@
-// src/pages/DoctorProfile.tsx
-
-import React, { Component } from 'react';
-import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Doctor } from '../types/Doctor';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Doctor } from '../types/Doctor'; // Using your specified Doctor interface
 import '../styles/DoctorProfile.css';
 
+const DoctorProfile: React.FC = () => {
+  const { id } = useParams<{ id: string }>(); // Get the ID from the URL parameters
+  const [doctor, setDoctor] = useState<Doctor | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [imageError, setImageError] = useState<boolean>(false);
 
-interface DoctorProfileProps {
-  match?: { params: { id: string } };
-  location?: any;
-  history?: { push: (path: string) => void };
-}
-
-interface DoctorProfileState {
-  doctor: Doctor | null;
-}
-
-function withRouter(Component: any) {
-  return (props: any) => {
-    const params = useParams();
-    const navigate = useNavigate();
-    const location = useLocation();
-    return (
-      <Component
-        {...props}
-        match={{ params }}
-        location={location}
-        history={{ push: navigate }}
-      />
-    );
-  };
-}
-
-class DoctorProfile extends Component<DoctorProfileProps, DoctorProfileState> {
-  constructor(props: DoctorProfileProps) {
-    super(props);
-    this.state = {
-      doctor: null,
-    };
-  }
-
-  componentDidMount() {
-    fetch('/doctors.json')
-      .then(res => res.json())
-      .then((data: Doctor[]) => {
-        const doctor = data.find(
-          doc => doc.id === parseInt(this.props.match?.params.id || '0')
-        );
-        this.setState({ doctor: doctor || null });
-      });
-  }
-
-  render() {
-    const { doctor } = this.state;
-
-    if (!doctor) {
-      return <div className="p-4 text-center">Loading doctor information...</div>;
+  useEffect(() => {
+    // Ensure ID is available and a valid number
+    if (!id || isNaN(parseInt(id))) {
+      setLoading(false);
+      setDoctor(null); // No doctor found if ID is invalid
+      return;
     }
 
+    setLoading(true);
+    fetch('/doctors.json')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data: Doctor[]) => {
+        const foundDoctor = data.find(
+          doc => doc.id === parseInt(id as string)
+        );
+        setDoctor(foundDoctor || null);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Failed to fetch doctor data:", error);
+        setLoading(false);
+        setDoctor(null); // Set doctor to null on fetch error
+      });
+  }, [id]); // Re-run effect if ID changes
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
+  if (loading) {
     return (
-      <div className="p-6 max-w-2xl mx-auto">
-        {/* Back to Home */}
-        <div className="mb-4">
-          <Link
-            to="/"
-            className="inline-block text-blue-500 hover:text-blue-700 underline"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <img
-            src={doctor.profileImage}
-            alt={doctor.name}
-            className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-          />
-          <h2 className="text-2xl font-semibold text-center">{doctor.name}</h2>
-          <p className="text-center text-gray-600">
-            {doctor.speciality} at {doctor.hospital}
-          </p>
-
-          {/* Availability (if field exists) */}
-          {'available' in doctor && (
-            <p
-              className={`mt-3 text-center font-semibold ${
-                doctor.available ? 'text-green-600' : 'text-red-600'
-              }`}
-            >
-              {doctor.available ? 'Available Today' : 'Not Available Today'}
-            </p>
-          )}
-
-          {/* Book Appointment Button */}
-          <div className="mt-6 text-center">
-            <Link
-              to={`/book/${doctor.id}`}
-              className="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              Book Appointment
-            </Link>
-          </div>
+      <div className="profile-page">
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Loading doctor information...</p>
         </div>
       </div>
     );
   }
-}
 
-export default withRouter(DoctorProfile);
+  if (!doctor) {
+    return (
+      <div className="profile-page">
+        <div className="error-container">
+          <div className="error-icon">⚠️</div>
+          <h2>Doctor Not Found</h2>
+          <p>We couldn't find the requested doctor information.</p>
+          <Link to="/" className="back-home-btn">Return to Home</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="profile-page">
+      <div className="background-pattern"></div>
+
+      {/* Navigation */}
+      <nav className="nav-container">
+        <Link to="/" className="back-link">
+          <span className="back-arrow">←</span>
+          Back to Home
+        </Link>
+      </nav>
+
+      {/* Main Profile Container */}
+      <div className="profile-container">
+        {/* Profile Header */}
+        <div className="profile-header">
+          <div className="profile-image-container">
+            {!imageError && doctor.profileImage ? (
+              <img
+                src={doctor.profileImage}
+                alt={doctor.name}
+                className="profile-image"
+                onError={handleImageError}
+              />
+            ) : (
+              // Fallback if profileImage is not provided or errors, using first letter of name
+              <div className="profile-avatar">
+                <span className="avatar-initial">{doctor.name.charAt(0)}</span>
+              </div>
+            )}
+            <div className="image-border"></div>
+          </div>
+
+          <div className="profile-info">
+            <h1 className="doctor-name">Dr. {doctor.name}</h1>
+            <p className="doctor-speciality">{doctor.speciality}</p>
+            <p className="doctor-hospital">
+              <span className="hospital-icon">🏥</span>
+              {doctor.hospital}
+            </p>
+          </div>
+        </div>
+
+        {/* Availability Status */}
+        {/* 'available' is a required property in your Doctor interface */}
+        <div className={`availability-badge ${doctor.available ? 'available' : 'unavailable'}`}>
+          <span className="status-indicator"></span>
+          <span className="status-text">
+            {doctor.available ? 'Available Today' : 'Not Available Today'}
+          </span>
+        </div>
+
+        {/* Doctor Details Cards - Only displaying fields present in your Doctor interface */}
+        <div className="details-grid">
+          <div className="detail-card">
+            <div className="detail-icon">👨‍⚕️</div>
+            <h3>Specialization</h3>
+            <p>{doctor.speciality}</p>
+          </div>
+
+          <div className="detail-card">
+            <div className="detail-icon">🏥</div>
+            <h3>Hospital</h3>
+            <p>{doctor.hospital}</p>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="action-buttons">
+          <Link
+            to={`/book/${doctor.id}`}
+            className="primary-btn book-btn"
+          >
+            <span className="btn-text">Book Appointment</span>
+            <span className="btn-icon">📅</span>
+          </Link>
+          {/* The "Contact Doctor" button has been removed from here */}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DoctorProfile;
