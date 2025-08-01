@@ -1,0 +1,22 @@
+/* styles/LandingPage.css */
+
+.landing-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+.landing-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.doctor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}

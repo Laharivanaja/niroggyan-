@@ -1,0 +1,125 @@
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.details {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 0.5rem 0;
+}
+
+.availability {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.available {
+  color: green;
+}
+
+.unavailable {
+  color: red;
+}
+
+.button {
+  margin-top: 2rem;
+  background-color: #38a169;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #2f855a;
+}
+
+.back {
+  display: block;
+  margin-top: 1.5rem;
+  color: #3182ce;
+  font-weight: 500;
+  text-decoration: underline;
+}
+/* styles/DoctorProfile.css */
+
+.profile-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.profile-details {
+  font-size: 16px;
+  color: #555;
+}
+
+.availability {
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.available {
+  color: #28a745;
+}
+
+.not-available {
+  color: #dc3545;
+}
+
+.button-group {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-group a {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.button-group a:hover {
+  background: #1d4ed8;
+}

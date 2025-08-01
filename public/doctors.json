@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Asha Mehta",
+    "speciality": "Cardiologist",
+    "hospital": "Apollo Hospitals",
+    "profileImage": "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Rahul Sharma",
+    "speciality": "Neurologist",
+    "hospital": "Fortis Hospital",
+    "profileImage": "https://randomuser.me/api/portraits/men/45.jpg"
+  }
+]
