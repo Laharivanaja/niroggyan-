@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 🏥 NirogGyan Frontend - Doctor Appointment Booking App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a frontend application for NirogGyan, a platform that allows users to find doctors, view profiles, and book appointments. The app is built using **React with TypeScript** and uses **class-based components** for stateful logic and routing.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🔍 Search and browse doctors
+- 👩‍⚕️ View detailed doctor profiles
+- 📅 Book an appointment with a selected doctor
+- ✅ Success confirmation screen post-booking
+- 📱 Responsive UI with clean and modern styling
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠 Tools & Libraries Used
 
-### `npm test`
+| Tool / Library         | Purpose                                      |
+|------------------------|----------------------------------------------|
+| React + TypeScript     | Frontend framework with type safety          |
+| React Router DOM       | Routing between pages                        |
+| Class Components       | Component structure without React Hooks      |
+| CSS (custom)           | Component-level styling                      |
+| JSON file (`doctors.json`) | Static data for doctor listings        |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧩 Folder Structure
+src/
+│
+├── components/ # Reusable components (DoctorCard, etc.)
+├── pages/ # Route-based views (LandingPage, Profile, Booking, etc.)
+├── styles/ # CSS files for components
+├── types/ # TypeScript interfaces (Doctor, etc.)
+├── App.tsx # Routes and layout
+└── index.tsx # Entry point
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💡 Improvements (If More Time Allowed)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🔐 Form validation using libraries like `Formik` or `Yup`
+- 🔄 Integration with a backend API for dynamic data
+- 👤 User authentication and login page
+- 📆 Appointment calendar picker (instead of manual input)
+- 🌐 Filter by speciality/hospital in search
+- 📱 Better mobile optimizations and dark mode
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🧠 Challenges Faced & Solutions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Challenge                                      | Solution |
+|-----------------------------------------------|----------|
+| Aligning doctor cards consistently             | Used `grid` layout (`.doctors-grid`) with responsive breakpoints |
+| Unwanted visual artifacts (blue arrows below) | Identified and removed extraneous SVGs from parent JSX |
+| Maintaining clean CSS across components       | Used component-scoped class names and utility structure |
+| Keeping TypeScript types strict yet usable     | Defined clear interfaces in `types/Doctor.ts` and used props typing in all components |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🔗 Live Demo (Optional)
 
-## Learn More
+[View deployed site](https://your-vercel-url.vercel.app)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 👩‍💻 Developed By
+
+**Lahari Prasanna Yarlagadda**
+
