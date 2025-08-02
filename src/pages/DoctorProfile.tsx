@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Doctor } from '../types/Doctor'; // Using your specified Doctor interface
+import { Doctor } from '../types/Doctor'; 
 import '../styles/DoctorProfile.css';
 
 const DoctorProfile: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Get the ID from the URL parameters
+  const { id } = useParams<{ id: string }>(); 
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [imageError, setImageError] = useState<boolean>(false);
 
   useEffect(() => {
-    // Ensure ID is available and a valid number
+    
     if (!id || isNaN(parseInt(id))) {
       setLoading(false);
-      setDoctor(null); // No doctor found if ID is invalid
+      setDoctor(null); 
       return;
     }
 
@@ -35,9 +35,9 @@ const DoctorProfile: React.FC = () => {
       .catch(error => {
         console.error("Failed to fetch doctor data:", error);
         setLoading(false);
-        setDoctor(null); // Set doctor to null on fetch error
+        setDoctor(null); 
       });
-  }, [id]); // Re-run effect if ID changes
+  }, [id]); 
 
   const handleImageError = () => {
     setImageError(true);
@@ -94,14 +94,14 @@ const DoctorProfile: React.FC = () => {
             ) : (
               // Fallback if profileImage is not provided or errors, using first letter of name
               <div className="profile-avatar">
-                <span className="avatar-initial">{doctor.name.charAt(0)}</span>
+                <span className="avatar-initial">{/*doctor.name.charAt(0)*/}</span>
               </div>
             )}
             <div className="image-border"></div>
           </div>
 
           <div className="profile-info">
-            <h1 className="doctor-name">Dr. {doctor.name}</h1>
+            <h1 className="doctor-name">{doctor.name}</h1>
             <p className="doctor-speciality">{doctor.speciality}</p>
             <p className="doctor-hospital">
               <span className="hospital-icon">🏥</span>
@@ -110,8 +110,7 @@ const DoctorProfile: React.FC = () => {
           </div>
         </div>
 
-        {/* Availability Status */}
-        {/* 'available' is a required property in your Doctor interface */}
+        
         <div className={`availability-badge ${doctor.available ? 'available' : 'unavailable'}`}>
           <span className="status-indicator"></span>
           <span className="status-text">
@@ -119,7 +118,6 @@ const DoctorProfile: React.FC = () => {
           </span>
         </div>
 
-        {/* Doctor Details Cards - Only displaying fields present in your Doctor interface */}
         <div className="details-grid">
           <div className="detail-card">
             <div className="detail-icon">👨‍⚕️</div>
@@ -143,7 +141,7 @@ const DoctorProfile: React.FC = () => {
             <span className="btn-text">Book Appointment</span>
             <span className="btn-icon">📅</span>
           </Link>
-          {/* The "Contact Doctor" button has been removed from here */}
+          
         </div>
       </div>
     </div>

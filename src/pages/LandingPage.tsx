@@ -106,7 +106,7 @@ class LandingPage extends React.Component<{}, LandingPageState> {
       <div className="landing-page">
         <div className="background-pattern"></div>
 
-        {/* Hero Section */}
+        
         <section className="hero-section">
           <div className="hero-container">
             <div className="hero-content">
@@ -141,7 +141,7 @@ class LandingPage extends React.Component<{}, LandingPageState> {
                 </div>
               </div>
 
-              {/* Quick Stats */}
+              
               <div className="stats-container">
                 <div className="stat-item">
                   <span className="stat-number">{this.state.doctors.length}+</span>

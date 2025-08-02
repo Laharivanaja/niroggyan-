@@ -136,10 +136,10 @@ class BookAppointment extends Component<BookAppointmentProps, BookAppointmentSta
           {/* Doctor Info Header */}
           <div className="doctor-header">
             <div className="doctor-avatar">
-              <span className="doctor-initial">{doctor.name.charAt(0)}</span>
+              <span className="doctor-initial">{/*doctor.name.charAt(0)*/}</span>
             </div>
             <div className="doctor-info">
-              <h1 className="doctor-name">Dr. {doctor.name}</h1>
+              <h1 className="doctor-name">{doctor.name}</h1>
               <p className="doctor-specialty">{doctor.speciality}</p>
               <p className="doctor-hospital">{doctor.hospital}</p>
             </div>

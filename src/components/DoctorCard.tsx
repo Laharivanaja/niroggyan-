@@ -1,6 +1,7 @@
 import React from 'react';
 import { Doctor } from '../types';
 import { Link } from 'react-router-dom';
+import "../styles/DoctorCard.css";
 
 interface Props {
   doctor: Doctor;
@@ -12,7 +13,7 @@ class DoctorCard extends React.Component<Props> {
     return (
       <div className="border p-4 rounded-lg shadow hover:shadow-md transition">
         <img src={doctor.profileImage} alt={doctor.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
-        <h3 className="text-lg font-semibold text-center">{doctor.name}</h3>
+        <h3 className="text-lg font-semibold text-left">{doctor.name}</h3>
         <p className="text-center text-sm">{doctor.speciality}</p>
         <p className="text-center text-sm text-gray-500">{doctor.hospital}</p>
         <div className="text-center mt-4">
