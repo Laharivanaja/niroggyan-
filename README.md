@@ -60,9 +60,8 @@ src/
 
 ---
 
-## 🔗 Live Demo (Optional)
-
-[View deployed site](https://your-vercel-url.vercel.app)
+## 🔗 Live Demo 
+niroggyan-ech2-3ct2tkig4-laharivanajas-projects.vercel.app
 
 ---
 
